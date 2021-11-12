@@ -95,8 +95,8 @@
 
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-    /*Advanced Options*/,
+    /*Advanced Options*/
+    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
     "resolveJsonModule": true
   }
 }
