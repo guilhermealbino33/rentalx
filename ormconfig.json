@@ -10,5 +10,6 @@
     "cli": {
         "migrationsDir": "./src/database/migrations",
         "entitiesDir": "./src/modules/**/entities"
-    }
+    },
+    "synchronize": true
 }
