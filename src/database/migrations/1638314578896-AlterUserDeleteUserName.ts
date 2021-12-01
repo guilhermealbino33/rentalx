@@ -1,3 +1,4 @@
+/*
 import { MigrationInterface, QueryRunner, TableColumn } from "typeorm";
 
 export class AlterUserDeleteUserName1638314578896
@@ -14,3 +15,4 @@ export class AlterUserDeleteUserName1638314578896
         );
     }
 }
+*/
