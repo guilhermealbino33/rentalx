@@ -12,7 +12,7 @@ describe("Create Car", () => {
         createCarUseCase = new CreateCarUseCase(carsRepositoryInMemory);
     });
     it("Should be able to create a new car", async () => {
-       const car = await createCarUseCase.execute({
+        const car = await createCarUseCase.execute({
             name: "Name Car",
             description: "Description Car",
             daily_rate: 100,
