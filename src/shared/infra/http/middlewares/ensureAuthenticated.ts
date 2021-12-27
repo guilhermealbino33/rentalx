@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
-import { UserRepository } from "../../../../modules/accounts/infra/typeorm/repositories/UsersRepository";
+import { UsersRepository } from "../../../../modules/accounts/infra/typeorm/repositories/UsersRepository";
 import { AppError } from "../../../errors/AppError";
 
 interface IPayload {
@@ -27,7 +27,7 @@ export async function ensureAuthenticated(
             "d3e046e96c35632a66db27bbf3021856"
         ) as IPayload;
 
-        const usersRepository = new UserRepository();
+        const usersRepository = new UsersRepository();
         const user = usersRepository.findById(user_id);
 
         if (!user) {
