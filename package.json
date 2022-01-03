@@ -8,7 +8,7 @@
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
     "lint:fix": "eslint --fix . --ext ts,tsx",
     "test": "jest",
-    "seed: admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
+    "seed:admin": "ts-node-dev -r tsconfig-paths/register ./src/shared/infra/typeorm/seed/admin.ts"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
