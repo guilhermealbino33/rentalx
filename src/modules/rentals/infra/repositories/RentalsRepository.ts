@@ -1,0 +1,4 @@
+class RentalsRepository {
+}
+
+export { RentalsRepository };
