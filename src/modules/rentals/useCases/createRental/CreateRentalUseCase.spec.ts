@@ -44,14 +44,15 @@ describe("Create Rental", () => {
         expect(rental).toHaveProperty("start_date");
     });
     it("Should not be able to create a new rental if there is another open to the same user", async () => {
-        await createRentalUseCase.execute({
-            car_id: "121212",
+        await rentalsRepositoryInMemory.create({
+            car_id: "123456",
             user_id: "12345",
             expected_return_date: dayAdd24Hours,
         });
+
         expect(
             createRentalUseCase.execute({
-                car_id: "121213",
+                car_id: "654321",
                 user_id: "12345",
                 expected_return_date: dayAdd24Hours,
             })
@@ -60,14 +61,14 @@ describe("Create Rental", () => {
         );
     });
     it("Should not be able to create a new rental if there is another open to the same car", async () => {
-        await createRentalUseCase.execute({
-            car_id: "121212",
+        await rentalsRepositoryInMemory.create({
+            car_id: "123456",
             user_id: "12345",
             expected_return_date: dayAdd24Hours,
         });
         await expect(
             createRentalUseCase.execute({
-                car_id: "121212",
+                car_id: "123456",
                 user_id: "AAA",
                 expected_return_date: dayAdd24Hours,
             })
