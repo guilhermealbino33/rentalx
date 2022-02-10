@@ -22,7 +22,7 @@ describe("Create Category Controller", () => {
                 name, 
                 email, 
                 password, 
-                'isAdmin', 
+                "is_Admin", 
                 created_at,
                 driver_license) 
             values(${id},
