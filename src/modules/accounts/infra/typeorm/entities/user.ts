@@ -31,9 +31,6 @@ class User {
         if (!this.id) {
             this.id = uuidV4();
         }
-        if (!this.is_admin) {
-            this.is_admin = false;
-        }
     }
 }
 
