@@ -11,6 +11,7 @@
     "seed:admin": "ts-node-dev -r tsconfig-paths/register ./src/shared/infra/typeorm/seed/admin.ts"
   },
   "dependencies": {
+    "@types/nodemailer": "^6.4.4",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "cross-env": "^7.0.3",
