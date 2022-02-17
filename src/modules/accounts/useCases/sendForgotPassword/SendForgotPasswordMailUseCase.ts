@@ -1,0 +1,3 @@
+class SendForgotPasswordMailUseCase {}
+
+export { SendForgotPasswordMailUseCase };

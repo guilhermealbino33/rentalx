@@ -1,0 +1,3 @@
+class SendForgotPasswordMailController {}
+
+export { SendForgotPasswordMailController };
