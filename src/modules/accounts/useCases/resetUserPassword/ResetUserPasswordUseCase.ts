@@ -1,3 +1,4 @@
+import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
 import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
@@ -22,13 +23,26 @@ class ResetUserPasswordUseCase {
         @inject("EtherealMailProvider")
         private mailProvider: IMailProvider
     ) {}
-    async execute({ token, password }: IRequest) {
+    async execute({ token, password }: IRequest): Promise<void> {
         const userToken = await this.usersTokensRepository.findByRefreshToken(
             token
         );
         if (!userToken) {
             throw new AppError("Invalid token!");
         }
+        if (
+            this.dateProvider.compareIfBefore(
+                userToken.expires_date,
+                this.dateProvider.dateNow()
+            )
+        ) {
+            throw new AppError("Expired token!");
+        }
+        const user = await this.usersRepository.findById(userToken.user_id);
+        user.password = await hash(password, 8);
+
+        await this.usersRepository.create(user);
+        await this.usersTokensRepository.deleteById(userToken.id);
     }
 }
 

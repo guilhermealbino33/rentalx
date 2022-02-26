@@ -11,7 +11,7 @@ class UsersTokensRepository implements IUsersTokensRepository {
     constructor() {
         this.repository = getRepository(UserTokens);
     }
-    
+
     async create({
         user_id,
         expires_date,
