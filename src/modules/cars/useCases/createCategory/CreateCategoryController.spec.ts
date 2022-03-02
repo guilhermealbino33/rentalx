@@ -13,7 +13,7 @@ describe("Create Category Controller", () => {
         connection = await createConnection();
         await connection.runMigrations();
 
-        const id = uuidV4;
+        const id = uuidV4();
         const password = await hash("admin", 8);
 
         await connection.query(
@@ -22,13 +22,13 @@ describe("Create Category Controller", () => {
                 name, 
                 email, 
                 password, 
-                "is_Admin", 
+                "is_admin", 
                 created_at,
                 driver_license) 
-            values(${id},
+            values('${id}',
                  'admin',
                  'admin@rentx.com',
-                  ${password},
+                  '${password}',
                   true,
                   'now()',
                   'XXXXXX')`
